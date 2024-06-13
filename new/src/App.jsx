@@ -9,6 +9,8 @@ import SingleCard from "./SingleCard";
 import Navbar from "./comp/Navbar";
 import SignIn from "./comp/SignIn";
 import Child1 from "./PropsDrill/Child1";
+import RefHook from "./comp/RefHook";
+import Reducer from "./comp/Reducer";
 
 function App() {
   const [product, setProduct] = useState([]);
@@ -33,7 +35,7 @@ function App() {
 
   return (
     <>
-      {/* <BrowserRouter>
+      <BrowserRouter>
         <Navbar />
         <Routes>
           <Route
@@ -53,15 +55,17 @@ function App() {
           <Route path="/music" element={<Music />} />
           <Route path="/test" element={<Muitest />} />
           <Route path="/signin" element={<SignIn />} />
+          <Route path="/ref" element={<RefHook/>} />
+          <Route path="/reducer" element={<Reducer/>} />
         </Routes>
-      </BrowserRouter> */}
+      </BrowserRouter>
 
       {/* <Muitest/>
      <ButtonBaseDemo/> */}
       {/* 
      <Music/> */}
 
-    <Child1 data={firstName}/>
+    {/* <Child1 data={firstName}/> */}
 
     </>
   );
