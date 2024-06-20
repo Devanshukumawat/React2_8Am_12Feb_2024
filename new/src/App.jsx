@@ -11,6 +11,14 @@ import SignIn from "./comp/SignIn";
 import Child1 from "./PropsDrill/Child1";
 import RefHook from "./comp/RefHook";
 import Reducer from "./comp/Reducer";
+import ChildA from "./Context/ChildA";
+import { createContext } from "react";
+import Tailwind from "./Tailwind/Tailwind";
+import Weather from "./Weather/Weather";
+
+
+let myData = createContext()
+let myData1 = createContext()
 
 function App() {
   const [product, setProduct] = useState([]);
@@ -31,10 +39,22 @@ function App() {
       })
   }, []);
 
+  
+  // context = create,provide,consumer
+  // create , provide , usecontext
+  
+
   const firstName = "Devanshu Sir"
+  const lastName = "Text"
+ 
+
+ 
 
   return (
     <>
+
+    <myData.Provider value={firstName}>
+    <myData1.Provider value={lastName}>
       <BrowserRouter>
         <Navbar />
         <Routes>
@@ -57,8 +77,13 @@ function App() {
           <Route path="/signin" element={<SignIn />} />
           <Route path="/ref" element={<RefHook/>} />
           <Route path="/reducer" element={<Reducer/>} />
+          <Route path="/tailwind" element={<Tailwind/>} />
+          <Route path="/weather" element={<Weather/>} />
         </Routes>
       </BrowserRouter>
+
+
+      {/* <ChildA /> */}
 
       {/* <Muitest/>
      <ButtonBaseDemo/> */}
@@ -66,9 +91,13 @@ function App() {
      <Music/> */}
 
     {/* <Child1 data={firstName}/> */}
+    </myData1.Provider>
+    </myData.Provider>
 
     </>
   );
 }
 
 export default App;
+export {myData,myData1}
+

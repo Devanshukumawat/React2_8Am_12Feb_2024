@@ -1,4 +1,5 @@
 import { useRef, useState } from "react";
+import { myData } from "../App";
 
 function RefHook() {
 
@@ -33,6 +34,18 @@ function RefHook() {
                 />
                 <button onClick={handleFocus}>Add</button>
                 <button onClick={handleColor}>Color</button>
+
+               <myData.Consumer>
+                {
+                    (firstName)=>{
+                        return(
+                            <>
+                                <h1>{firstName}</h1>
+                            </>
+                        )
+                    }
+                }
+               </myData.Consumer>
            
         </>
      );
