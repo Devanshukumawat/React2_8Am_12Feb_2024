@@ -29,6 +29,7 @@ const navItems = [
     {name:"Test",url:"/test"},
     {name:"Memo",url:"/memo"},
     {name:"Callback",url:"/callback"},
+    {name:"Product",url:"/product"},
 
 ];
 

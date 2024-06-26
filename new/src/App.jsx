@@ -18,6 +18,8 @@ import Weather from "./Weather/Weather";
 import Test from "./Test";
 import Memo from "./usememo/Memo";
 import Callback from "./useCallback/Callback";
+import Product from "./product/Product";
+import Singleproduct from "./product/Singleproduct";
 
 
 let myData = createContext()
@@ -107,6 +109,8 @@ function App() {
           <Route path="/test" element={<Test/>} />
           <Route path="/memo" element={<Memo/>} />
           <Route path="/callback" element={<Callback myFun={memoFun}/>} />
+          <Route path="/product" element={<Product productData = {data}/>} />
+          <Route path="/singleproduct/:id" element={<Singleproduct productData = {data} />} />
         </Routes>
       </BrowserRouter>
 
@@ -124,10 +128,10 @@ function App() {
     </myData1.Provider>
     </myData.Provider>
 
-    <h1>{inc}</h1>
+    {/* <h1>{inc}</h1>
     <button onClick={Increment}>Increment</button>
     <h2>{name}</h2>
-    <button onClick={updateName}>name</button>
+    <button onClick={updateName}>name</button> */}
 
 
     </>
