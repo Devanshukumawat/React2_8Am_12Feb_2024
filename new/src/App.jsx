@@ -1,4 +1,4 @@
-import { useEffect, useState } from "react";
+import { useCallback, useEffect, useState } from "react";
 import ButtonBaseDemo from "./comp/Image";
 import Muitest from "./comp/Muitest";
 import Music from "./comp/Music";
@@ -15,6 +15,9 @@ import ChildA from "./Context/ChildA";
 import { createContext } from "react";
 import Tailwind from "./Tailwind/Tailwind";
 import Weather from "./Weather/Weather";
+import Test from "./Test";
+import Memo from "./usememo/Memo";
+import Callback from "./useCallback/Callback";
 
 
 let myData = createContext()
@@ -24,7 +27,12 @@ function App() {
   const [product, setProduct] = useState([]);
 
   const data = [
-    {name:"Iphone",}
+    {ProductName:"Iphone",ProductPrice:"$678"},
+    {ProductName:"Samsung",ProductPrice:"$099"},
+    {ProductName:"MI",ProductPrice:"$67"},
+    {ProductName:"Jio",ProductPrice:"$456"},
+    {ProductName:"One_plus",ProductPrice:"$456"}
+
   ]
 
   useEffect(() => {
@@ -47,12 +55,30 @@ function App() {
   const firstName = "Devanshu Sir"
   const lastName = "Text"
  
+  
+  const [inc,setInc] = useState(0)
+  const [name,setName] = useState("Manny")
 
- 
+  function updateName(){
+    setName("Kizie")
+  }
+
+  function Increment(){
+    setInc(inc+1)
+  }
+
+  const memoFun = useCallback(()=>{
+    console.log("Memorized Fun")
+  },[name])
+
+//  function memoFun(){
+//   console.log("Hello Function")
+//  }
+
 
   return (
     <>
-
+    
     <myData.Provider value={firstName}>
     <myData1.Provider value={lastName}>
       <BrowserRouter>
@@ -73,14 +99,18 @@ function App() {
           />
           <Route path="/single/:id" element={<SingleCard />} />
           <Route path="/music" element={<Music />} />
-          <Route path="/test" element={<Muitest />} />
           <Route path="/signin" element={<SignIn />} />
           <Route path="/ref" element={<RefHook/>} />
           <Route path="/reducer" element={<Reducer/>} />
           <Route path="/tailwind" element={<Tailwind/>} />
           <Route path="/weather" element={<Weather/>} />
+          <Route path="/test" element={<Test/>} />
+          <Route path="/memo" element={<Memo/>} />
+          <Route path="/callback" element={<Callback myFun={memoFun}/>} />
         </Routes>
       </BrowserRouter>
+
+
 
 
       {/* <ChildA /> */}
@@ -93,6 +123,12 @@ function App() {
     {/* <Child1 data={firstName}/> */}
     </myData1.Provider>
     </myData.Provider>
+
+    <h1>{inc}</h1>
+    <button onClick={Increment}>Increment</button>
+    <h2>{name}</h2>
+    <button onClick={updateName}>name</button>
+
 
     </>
   );

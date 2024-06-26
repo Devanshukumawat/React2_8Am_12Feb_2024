@@ -26,7 +26,9 @@ const navItems = [
     {name:"Reducer",url:"/reducer"},
     {name:"Tailwind",url:"/tailwind"},
     {name:"Weather",url:"/weather"},
-    
+    {name:"Test",url:"/test"},
+    {name:"Memo",url:"/memo"},
+    {name:"Callback",url:"/callback"},
 
 ];
 
